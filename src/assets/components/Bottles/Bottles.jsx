@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import Bottle from "../Bottle/Bottle"
+import { addToLs } from "../utility/localstorage"
 
 
 export default function Bottles() {
@@ -15,8 +16,10 @@ export default function Bottles() {
 
     const handleAddToCart = btl =>{
         // console.log('fun message handel add to cart:',btl);
-        const newCart = [...cart,btl]
-        setCart(newCart)
+        const newCart = [...cart,btl];
+        setCart(newCart);
+        addToLs(btl.id);
+
 
     }
 
