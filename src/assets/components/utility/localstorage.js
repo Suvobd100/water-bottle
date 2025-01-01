@@ -17,4 +17,4 @@ const addToLs = (id) => {
     saveCartToLs(cart); // Save the updated cart back to local storage
 };
 
-export { addToLs };
+export { addToLs,getStoredCart };
