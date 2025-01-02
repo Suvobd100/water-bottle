@@ -55,8 +55,8 @@ export default function Bottles() {
 
   return (
     <div>
-        <div className="flex justify-between">
-        <h2  className="text-2xl font-semibold">
+        <div className="">
+        <h2  className="text-2xl font-semibold mb-3">
             Bottles Available Here: {bottles.length}
         </h2>
         {/* <h4>

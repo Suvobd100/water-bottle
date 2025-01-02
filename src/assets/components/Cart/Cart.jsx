@@ -6,7 +6,7 @@ export const Cart = ({cart,handelRemoveFromCart}) => {
   return (
     <div> 
         <h4>
-            My Shopping Cart: {cart.length}
+            My Shopping Cart: <span className="text-purple-600">{cart.length}</span>
          </h4> 
          {console.log('from cart component:',cart)}
          <div className="flex gap-3">
