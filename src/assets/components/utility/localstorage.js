@@ -1,3 +1,6 @@
+// ------------------------js script file for local storage 
+
+
 const getStoredCart = () => {
     const storedCartString = localStorage.getItem('cart'); // Use getItem to retrieve data
     if (storedCartString) {
@@ -5,6 +8,8 @@ const getStoredCart = () => {
     }
     return []; // Return an empty array if no data exists
 };
+
+// local storage save data
 
 const saveCartToLs = (cart) => {
     const cartStringified = JSON.stringify(cart); // Convert the cart to a JSON string
@@ -17,4 +22,12 @@ const addToLs = (id) => {
     saveCartToLs(cart); // Save the updated cart back to local storage
 };
 
-export { addToLs,getStoredCart };
+const removeCartToLs = (id) =>{
+    const cart = getStoredCart();
+    // removing every id
+    const remaining = cart.filter(cId => cId !== id);
+    saveCartToLs(remaining);
+}
+
+
+export { addToLs,getStoredCart,removeCartToLs };

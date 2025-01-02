@@ -1,12 +1,13 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import Bottle from "../Bottle/Bottle"
-import { addToLs, getStoredCart } from "../utility/localstorage"
+import { addToLs, getStoredCart, removeCartToLs } from "../utility/localstorage"
 import { Cart } from "../Cart/Cart"
 
 
 export default function Bottles() {
     const [bottles,setBottles] = useState([])
+   
     const [cart,setCart]=useState([])
 
     useEffect(()=>{
@@ -34,14 +35,22 @@ export default function Bottles() {
        }
     },[bottles])
 
-
+    // adding ID to local storage
     const handleAddToCart = btl =>{
         // console.log('fun message handel add to cart:',btl);
         const newCart = [...cart,btl];
         setCart(newCart);
         addToLs(btl.id);
+    }
+
+    const handelRemoveFromCart = id =>{
+        // 2. remove from visual page
+        const remainingCart = cart.filter(b => b.id !== id);
+        setCart(remainingCart);
 
 
+        // 1. remove form LS
+        removeCartToLs(id)
     }
 
   return (
@@ -53,7 +62,7 @@ export default function Bottles() {
         {/* <h4>
             Shopping Cart: {cart.length}
         </h4> */}
-        <Cart cart={cart}></Cart>
+        <Cart cart={cart}  handelRemoveFromCart={handelRemoveFromCart}></Cart>
         </div>
         <div className="grid grid-cols-3 gap-2">
         {
