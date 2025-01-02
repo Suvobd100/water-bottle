@@ -1,4 +1,8 @@
-
+import PropTypes from "prop-types"
+Bottle.propTypes={
+  props: PropTypes.object.isRequired,
+  fAddCart: PropTypes.func.isRequired
+}
 export default function Bottle({props,fAddCart}) {
     // {
     //     "id": "9e7cda87-8160-458f-bd32-ecf253a2d86a",

@@ -1,16 +1,22 @@
+import PropTypes from "prop-types"
+
+Cart.propTypes={
+  cart: PropTypes.array
+}
 
 export const Cart = ({cart}) => {
   return (
     <div> 
         <h4>
-            Shopping Cart: {cart.length}
+            My Shopping Cart: {cart.length}
          </h4> 
-         {console.log('from cart cmpo:',cart)}
+         {console.log('from cart component:',cart)}
          <div className="flex gap-3">
             {
-                cart.map(b=> <img key={b.id} className="w-28" src={b.img}></img>)
+                cart.map(b=> <img key={b.id} className="w-20 rounded-md mt-2" src={b.img}></img>)
             }
          </div>
 </div>
   )
+
 }
